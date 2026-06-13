@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background: #fff;
+        }
+
+        /* ── NAVIGATION ── */
+        nav {
+            background: #F5F2EC;
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+            color: #3D3470;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 42px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #444;
+            font-size: 15px;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #7B69A8;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(130deg, #7B6BA8 0%, #9180BC 40%, #B09ECC 75%, #C4B4D8 100%);
+            min-height: 540px;
+            padding: 90px 70px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-circle-1 {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.09);
+            bottom: -100px;
+            left: -80px;
+        }
+
+        .hero-circle-2 {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            top: -70px;
+            right: 160px;
+        }
+
+        .hero-circle-3 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            bottom: 40px;
+            right: 40px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-icons {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 15px;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 74px;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .italic-line {
+            display: block;
+            color: #E5C0C8;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 68px;
+        }
+
+        .hero-sub {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 16px;
+            margin-top: 22px;
+            max-width: 400px;
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            margin-top: 38px;
+            background: #fff;
+            color: #444;
+            padding: 15px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .hero-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ── ABOUT ── */
+        .about {
+            padding: 80px 70px;
+            display: grid;
+            grid-template-columns: 1fr 1.45fr;
+            gap: 90px;
+            align-items: start;
+            background: #fff;
+        }
+
+        .about-left .section-label {
+            color: #7B69A8;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .about-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            color: #1B1830;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .about-left h2 .italic {
+            font-style: italic;
+            font-weight: 400;
+            display: block;
+        }
+
+        .profile-placeholder {
+            width: 260px;
+            max-width: 260px;
+            height: 260px;
+            background: #E8E3F0;
+            border-radius: 50%;
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #9A90B8;
+            font-size: 13px;
+            gap: 10px;
+            border: 2px dashed #C8C0DC;
+        }
+
+        .profile-placeholder svg {
+            opacity: 0.45;
+        }
+
+        .about-right {
+            padding-top: 10px;
+        }
+
+        .about-right p {
+            color: #555;
+            font-size: 15.5px;
+            line-height: 1.78;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+
+        /* ── SKILLS ── */
+        .skills {
+            background: #F0ECE6;
+            padding: 80px 70px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #7B69A8;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .skills h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            color: #1B1830;
+            margin-bottom: 52px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 38px 34px;
+            text-align: left;
+            border: 1px solid transparent;
+        }
+
+        .skill-card.highlighted {
+            border-color: #D4B8D8;
+        }
+
+        .skill-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 22px;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .icon-c {
+            background: #6B5B9E;
+            font-size: 22px;
+        }
+
+        .icon-html {
+            background: linear-gradient(135deg, #E07060 0%, #C84840 100%);
+            font-size: 14px;
+            letter-spacing: -1px;
+        }
+
+        .icon-crochet {
+            background: linear-gradient(135deg, #CC9ACC 0%, #9870BC 100%);
+            font-size: 20px;
+        }
+
+        .skill-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #1B1830;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.68;
+        }
+
+        /* ── GALLERY ── */
+        .gallery {
+            background: #fff;
+            padding: 80px 70px;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .gallery-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            color: #1B1830;
+            margin-bottom: 14px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .gallery-header p {
+            color: #999;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1.25fr 1fr;
+            grid-template-rows: 280px 270px;
+            gap: 12px;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: #E8E3F0;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #9A90B8;
+            font-size: 13px;
+            gap: 10px;
+            border: 2px dashed #C8C0DC;
+            overflow: hidden;
+        }
+
+        /* Layout: 5 photos — left col: 2 stacked, center col: 1 tall, right col: 2 stacked */
+        .gallery-item:nth-child(1) {
+            grid-row: 1;
+            grid-column: 1;
+        }
+
+        .gallery-item:nth-child(2) {
+            grid-row: 1 / 3;
+            grid-column: 2;
+        }
+
+        .gallery-item:nth-child(3) {
+            grid-row: 1;
+            grid-column: 3;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-row: 2;
+            grid-column: 1;
+        }
+
+        .gallery-item:nth-child(5) {
+            grid-row: 2;
+            grid-column: 3;
+        }
+
+        .gallery-item svg {
+            opacity: 0.4;
+        }
+
+        /* ── CONTACT ── */
+        .contact {
+            background: linear-gradient(130deg, #7B6BA8 0%, #9180BC 40%, #B09ECC 75%, #C4B4D8 100%);
+            padding: 110px 60px;
+            text-align: center;
+        }
+
+        .contact .section-label {
+            color: rgba(255, 255, 255, 0.72);
+            letter-spacing: 2.5px;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 62px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .contact-sub {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 16px;
+            max-width: 440px;
+            margin: 0 auto 44px;
+            line-height: 1.65;
+            font-weight: 300;
+        }
+
+        .contact-btns {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background: #fff;
+            color: #444;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.9;
+        }
+
+        .contact-btn svg {
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #2A2738;
+            padding: 24px 60px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.42);
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-logo">Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-circle-1"></div>
+        <div class="hero-circle-2"></div>
+        <div class="hero-circle-3"></div>
+        <div class="hero-content">
+            <div class="hero-icons">&lt;/&gt; + 🎨</div>
+            <h1>
+                Developer
+                <span class="italic-line">&amp; Creative Maker</span>
+            </h1>
+            <p class="hero-sub">Weaving together code and crafts — where logical precision meets handmade beauty.</p>
+            <a href="#contact" class="hero-btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-left">
+            <p class="section-label">ABOUT ME</p>
+            <h2>
+                Two worlds,
+                <span class="italic">one mindset.</span>
+            </h2>
+            <!-- Profile picture placeholder -->
+            <img src="mee.jpeg" alt="Eleinah" class="profile-placeholder" style="object-fit: cover;" />
+        </div>
+        <div class="about-right">
+            <p>I'm a passionate developer and creative maker who believes the best work lives at the intersection of
+                technology and artistry. My journey has been one of constant learning — bridging the logical world of
+                programming with the tactile, expressive realm of handmade crafts.</p>
+            <p>Whether I'm debugging code or designing intricate crochet patterns, I bring the same dedication to
+                detail, creativity, and problem-solving. This unique combination gives me a fresh perspective on both
+                digital and physical creations.</p>
+            <p>When I'm not at my computer, you'll find me with yarn in hand, translating patterns into handmade pieces
+                that bring warmth and joy to others.</p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+        <span class="section-label">SKILLS</span>
+        <h2>Core Competencies</h2>
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <div class="skill-icon icon-c">C</div>
+                <h3>C Programming</h3>
+                <p>Systems programming, memory management, and low-level operations — building with precision and
+                    performance in mind.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon icon-html">&lt;/&gt;</div>
+                <h3>HTML</h3>
+                <p>Semantic markup, accessibility best practices, and modern web standards — the architecture of the
+                    web, thoughtfully structured.</p>
+            </div>
+
+            <div class="skill-card highlighted">
+                <div class="skill-icon icon-crochet">🎨</div>
+                <h3>Crochet</h3>
+                <p>Handmade pieces with deep attention to detail, pattern design, and the meditative joy of creative
+                    making with yarn.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-header">
+            <span class="section-label">HANDMADE</span>
+            <h2>Crochet Gallery</h2>
+            <p>A collection of handcrafted pieces — each one a small story told in yarn.</p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <!-- Photo 1 -->
+            <div class="gallery-item">
+    <img src="one.jpeg" alt="Crochet piece 1" style="width:100%; height:100%; object-fit:cover; border-radius:14px;" />
+  </div>
+
+            <!-- Photo 2 — spans both rows (tall center) -->
+            <div class="gallery-item">
+    <img src="two.jpeg" alt="Crochet piece 1" style="width:100%; height:100%; object-fit:cover; border-radius:14px;" />
+  </div>
+
+            <!-- Photo 3 -->
+            <div class="gallery-item">
+    <img src="three.jpeg" alt="Crochet piece 1" style="width:100%; height:100%; object-fit:cover; border-radius:14px;" />
+  </div>
+
+            <!-- Photo 4 -->
+            <div class="gallery-item">
+    <img src="four.jpeg" alt="Crochet piece 1" style="width:100%; height:100%; object-fit:cover; border-radius:14px;" />
+  </div>
+            <!-- Photo 5 -->
+            <div class="gallery-item">
+    <img src="five.jpeg" alt="Crochet piece 1" style="width:100%; height:100%; object-fit:cover; border-radius:14px;" />
+  </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <span class="section-label">LET'S CONNECT</span>
+        <h2>Say Hello</h2>
+        <p class="contact-sub">Whether it's a project, a collaboration, or just to swap crochet patterns — I'd love to
+            hear from you.</p>
+        <div class="contact-btns">
+
+            <a href="mailto:eleinah712@gmail.com" class="contact-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M2 7l10 7 10-7" />
+                </svg>
+                Email Me
+            </a>
+
+            <a href="https://www.linkedin.com/in/eleinah-nambalirwa-376a52359/" class="contact-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                </svg>
+                LinkedIn
+            </a>
+
+            <a href="https://medium.com/@eleinah712" class="contact-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                </svg>
+                Medium
+            </a>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Nambalirwa Eleinah. Crafted with code and care.</p>
+    </footer>
+
+</body>
+
+</html>
